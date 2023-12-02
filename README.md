@@ -1,38 +1,38 @@
 # Lampp-Ku [PC]
-Lampp (PHP7.4-Apache, MySQL5.6 dam PHPMyAdmin) Versi PC <br><br><br>
-<b>Persiapan</b>
-1. &nbsp; Web Server <br>
-&nbsp; - Port: 7070 -> 80 [ mengarah ke port 80 ] <br>
-&nbsp; - Port: 7022 -> 22 [ mengarah ke port 22 - ssh ] <br>
-2. &nbsp; MySQL Server / Login PHPMyAdmin <br>
-&nbsp; - Root Username/Pass [ root/password ] <br>
-&nbsp; - User Username/Pass [ mysql/password ] <br>
-3. &nbsp; SSH Server<br>
-&nbsp; User Username/Pass [ root/1 ] <br>
-4. &nbsp; Persiapkan paket git <br>
-&nbsp; apt update && apt -y install nano git <br>
-5. &nbsp; Siapkan direktori baru <br> 
-&nbsp;  mkdir -p ~/docker/ <br><br><br>
+Lampp (PHP7.4-Apache, MySQL5.6 dam PHPMyAdmin) Versi PC
+Persiapan
+1. Web Server
+   - Port: 7070 -> 80 [ mengarah ke port 80 ]
+   - Port: 7022 -> 22 [ mengarah ke port 22 - ssh ]
+2. MySQL Server / Login PHPMyAdmin
+   - Root Username/Pass [ root/password ]
+   - User Username/Pass [ mysql/password ]
+3. SSH Server
+   User Username/Pass [ root/1 ]
+4. Persiapkan paket git
+   apt update && apt -y install nano git
+5. Siapkan direktori baru
+   mkdir -p ~/docker/
 
-<b>Instalasi</b>
-1. &nbsp; Download docker-compose <br>
-&nbsp; git clone https://github.com/otnamrehus/lampp-ku.git <br>
-2. &nbsp; Jalankan perintah docker dengan docker-compose <br>
-&nbsp; docker-composer -p 'lamppku' -d --build 
-3. &nbsp; Hentikan dan jalankan docker-compose [container-container/service] <br>
-&nbsp; docker-composer -p 'lamppku' stop   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # hentikan container<br>
-&nbsp; docker-composer -p 'lamppku' start  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # jalankan container <br>
-4. &nbsp; Hentikan dan jalankan docker-compose <br>
-&nbsp; docker-composer -p 'lamppku' down   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;# hentikan sekaligus hapus container<br>
-5. &nbsp; Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya  <br>
-&nbsp; zerotier-cli join 565799d8f6bdd3c d   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;# Koneksi ke VPN <br><br><br>
+Instalasi
+1. Download docker-compose
+   git clone https://github.com/otnamrehus/lampp-ku.git
+2. Jalankan perintah docker dengan docker-compose
+   docker-composer -p 'lamppku' -d --build 
+3. Hentikan dan jalankan docker-compose [container-container/service]
+   docker-composer -p 'lamppku' stop   # hentikan container
+   docker-composer -p 'lamppku' start  # jalankan container 
+4. Hentikan dan jalankan docker-compose
+   docker-composer -p 'lamppku' down # hentikan sekaligus hapus container
+5. Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya
+   zerotier-cli join 565799d8f6bdd3c d   # Koneksi ke VPN
 
-<b>Running</b>
-1. &nbsp;Web Server <i>(Via Browser)</i> <br>
-&nbsp; http://localhost:7070 <br>
-2. &nbsp;PHPMyAdmin <i>(Via Browser)</i><br>
-&nbsp; http://localhost:7171 <br>
-3. &nbsp;Remote Server [SSH] <i>(Via Terminal)</i><br>
-&nbsp;sudo ssh -p 7022 root@ip_address <br>
-4. &nbsp;Remote Server [SFTP] <i>(Via Terminal)</i><br>
-&nbsp;sudo sftp -P 7022 root@ip_address <br>
+Running
+1. Web Server (Via Browser)
+   http://localhost:7070
+2. PHPMyAdmin (Via Browser)
+   http://localhost:7171
+3. Remote Server [SSH](Via Terminal)
+   sudo ssh -p 7022 root@ip_address
+4. Remote Server [SFTP] (Via Terminal)
+   sudo sftp -P 7022 root@ip_address
