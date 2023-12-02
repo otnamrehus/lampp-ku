@@ -32,5 +32,7 @@ Lampp (PHP7.4-Apache, MySQL5.6 dam PHPMyAdmin) Versi PC <br><br><br>
 &nbsp; http://localhost:7070 <br>
 2. &nbsp;PHPMyAdmin <i>(Via Browser)</i><br>
 &nbsp; http://localhost:7171 <br>
-3. &nbsp;SSH <i>(Via Terminal)</i><br>
+3. &nbsp;Remote Server [SSH] <i>(Via Terminal)</i><br>
 &nbsp;sudo ssh -p 7022 root@ip_address <br>
+4. &nbsp;Remote Server [SFTP] <i>(Via Terminal)</i><br>
+&nbsp;sudo sftp -P 7022 root@ip_address <br>
