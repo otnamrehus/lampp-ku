@@ -8,31 +8,20 @@ Persiapan
    - Root Username/Pass [ root/password ]
    - User Username/Pass [ mysql/password ]
 3. SSH Server
-   User Username/Pass [ root/1 ]
-4. Persiapkan paket git
-   apt update && apt -y install nano git
-5. Siapkan direktori baru
-   mkdir -p ~/docker/
+   - User Username/Pass [ root/1 ]
+4. apt update && apt -y install nano git     ## Persiapkan paket git
+5. mkdir -p ~/docker/     ##  Siapkan direktori baru
 
 Instalasi
-1. Download docker-compose
-   git clone https://github.com/otnamrehus/lampp-ku.git
-2. Jalankan perintah docker dengan docker-compose
-   docker-composer -p 'lamppku' -d --build 
-3. Hentikan dan jalankan docker-compose [container-container/service]
-   docker-composer -p 'lamppku' stop   # hentikan container
-   docker-composer -p 'lamppku' start  # jalankan container 
-5. Hentikan dan jalankan docker-compose
-   docker-composer -p 'lamppku' down # hentikan sekaligus hapus container
-6. Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya
-   zerotier-cli join 565799d8f6bdd3c d   # Koneksi ke VPN
+1. git clone https://github.com/otnamrehus/lampp-ku.git    ## Download docker-compose
+2. docker-composer -p 'lamppku' -d --build  ## Jalankan perintah docker dengan docker-compose
+3. docker-composer -p 'lamppku' stop   ## hentikan container
+4. docker-composer -p 'lamppku' start  ## jalankan container 
+5. docker-composer -p 'lamppku' down  ## hentikan sekaligus hapus container
+6. zerotier-cli join 565799d8f6bdd3c d  ## Koneksi ke VPN  (Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya)
 
 Running
-1. Web Server (Via Browser)
-   http://localhost:7070
-2. PHPMyAdmin (Via Browser)
-   http://localhost:7171
-3. Remote Server [SSH](Via Terminal)
-   sudo ssh -p 7022 root@ip_address
-4. Remote Server [SFTP] (Via Terminal)
-   sudo sftp -P 7022 root@ip_address
+1. http://localhost:7070   ##  Web Server (Via Browser)   
+2. http://localhost:7171   ##  PHPMyAdmin (Via Browser)   
+3. sudo ssh -p 7022 root@ip_address   ### Remote Server [SSH]  (Via Terminal)
+4. sudo sftp -P 7022 root@ip_address  ### Remote Server [SFTP]  (Via Terminal)
