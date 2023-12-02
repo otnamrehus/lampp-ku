@@ -1,0 +1,51 @@
+version: '3'
+services:
+  # PHP 7.4 with Apache and SSH
+  webserver:
+    image: php:7.4-apache
+    container_name: lampp-webserver
+    hostname: webserver
+    ports:
+      - "7070:80"
+      - "7022:22"
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      SSH_PASSWORD_AUTH: 'true'  # Enable password authentication for SSH
+      SSH_ROOT_PASSWORD: password
+    command: >
+      bash -c "apt-get update && apt-get install -y screen sudo curl nano htop unzip openssh-server && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && service ssh restart && echo 'root:1' | chpasswd && curl -s https://install.zerotier.com | sudo bash && apache2-foreground"
+    restart: unless-stopped
+
+  # MySQL 5.6
+  database:
+    image: mysql:5.6
+    container_name: lampp-database
+    hostname: database
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysql_database
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
+    ports:
+      - "7706:3306"
+    restart: unless-stopped
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  # phpMyAdmin - With PHP8.0
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: lampp-phpmyadmin
+    hostname: phpmyadmin
+    environment:
+      PMA_HOST: database
+      #PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "7171:80"
+    restart: unless-stopped
+    depends_on:
+      - database
+
+
