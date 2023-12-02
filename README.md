@@ -22,9 +22,9 @@ Instalasi
 3. Hentikan dan jalankan docker-compose [container-container/service]
    docker-composer -p 'lamppku' stop   # hentikan container
    docker-composer -p 'lamppku' start  # jalankan container 
-4. Hentikan dan jalankan docker-compose
+5. Hentikan dan jalankan docker-compose
    docker-composer -p 'lamppku' down # hentikan sekaligus hapus container
-5. Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya
+6. Tambahan service [zerotier-one] sebagai Tunneling , karena telah terinstall sebelumnya
    zerotier-cli join 565799d8f6bdd3c d   # Koneksi ke VPN
 
 Running
