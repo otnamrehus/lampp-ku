@@ -1,5 +1,6 @@
 # Lampp-Ku [PC]
 Lampp (PHP7.4-Apache, MySQL5.6 dam PHPMyAdmin) Versi PC
+
 Persiapan
 1. Web Server
    - Port: 7070 -> 80 [ mengarah ke port 80 ]
