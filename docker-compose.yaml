@@ -6,7 +6,7 @@ services:
     container_name: lampp-webserver
     hostname: webserver
     ports:
-      - "7070:80"
+      - "7000:80"
       - "7022:22"
     volumes:
       - ./html:/var/www/html
@@ -24,11 +24,12 @@ services:
     hostname: database
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: mysql_database
+      MYSQL_DATABASE: lamppku
       MYSQL_USER: mysql
       MYSQL_PASSWORD: password
     ports:
       - "7706:3306"
+      - "7023:22"
     restart: unless-stopped
     volumes:
       - ./mysql:/var/lib/mysql
@@ -41,9 +42,10 @@ services:
     environment:
       PMA_HOST: database
       #PMA_PORT: 3306
+      MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
     ports:
-      - "7171:80"
+      - "7007:80"
     restart: unless-stopped
     depends_on:
       - database
