@@ -4,7 +4,6 @@ services:
   webserver:
     image: php:7.4-apache
     container_name: lampp-webserver
-    hostname: webserver
     ports:
       - "7000:80"
       - "7022:22"
@@ -14,7 +13,7 @@ services:
       SSH_PASSWORD_AUTH: 'true'  # Enable password authentication for SSH
       SSH_ROOT_PASSWORD: password
     command: >
-      bash -c "apt-get update && apt-get install -y screen sudo curl nano htop unzip openssh-server && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && service ssh restart && echo 'root:1' | chpasswd && curl -s https://install.zerotier.com | sudo bash && apache2-foreground"
+      bash -c "apt-get update && apt-get install -y screen sudo curl nano htop unzip openssh-server && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && service ssh restart && echo "<?php phpinfo();?>" >> /var/www/html/index.php && echo 'root:1' | chpasswd && curl -s https://install.zerotier.com | sudo bash && apache2-foreground"
     restart: unless-stopped
 
   # MySQL 5.6
